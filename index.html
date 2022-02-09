@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body { padding-top: 50px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron" style="margin: 0 auto; text-align: center">
+      <h1>QR Code Generator</h1>
+    <div class="input-group">
+      <input type="text" id="text_input" class="form-control" placeholder="" aria-label="" autofocus aria-describedby="">
+      <div class="input-group-append">
+        <button id="generate_button" class="btn btn-outline-secondary" type="button">Generate</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const redirectTo = (url) => {
+      window.location.replace('/get?text=' + url)
+    }
+    const buttonClicked = () => {
+      const data = document.getElementById('text_input');
+      if(data.value != "") {
+        redirectTo(data.value);
+      }
+    };
+    document.getElementById('generate_button').addEventListener("click", buttonClicked);
+  </script>
+
+</body>
+</html>
